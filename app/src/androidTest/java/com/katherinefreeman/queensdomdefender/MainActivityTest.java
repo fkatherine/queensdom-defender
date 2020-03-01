@@ -44,12 +44,28 @@ public class MainActivityTest {
 
     @Test
     public void shouldHaveBlackBackgroundForGameBoard() {
-        View gameBoard = withCurrentActivity().findViewById(R.id.game_board);
+        assertThatViewHasBackgroundColour(R.id.game_board, R.color.black);
+    }
 
-        ColorDrawable gameBoardBackground = (ColorDrawable) gameBoard.getBackground();
-        int expectedColour = withCurrentApplicationContext().getColor(R.color.black);
 
-        assertThat(gameBoardBackground.getColor(), is(expectedColour));
+    @Test
+    public void shouldShowPlayingField() {
+        onView(withId(R.id.playing_field))
+                .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void shouldHaveRedBackgroundForPlayingField() {
+        assertThatViewHasBackgroundColour(R.id.playing_field, R.color.red);
+    }
+
+    @Test
+    public void shouldHaveMinimumDimensionsForPlayingField() {
+        int height = withCurrentActivity().findViewById(R.id.playing_field).getHeight();
+        int width = withCurrentActivity().findViewById(R.id.playing_field).getWidth();
+
+        assertThat(height, is(525));
+        assertThat(width, is(1050));
     }
 
     private MainActivity withCurrentActivity() {
@@ -58,5 +74,14 @@ public class MainActivityTest {
 
     private Context withCurrentApplicationContext() {
         return withCurrentActivity().getApplicationContext();
+    }
+
+    private void assertThatViewHasBackgroundColour(int view, int expectedColour) {
+        View gameBoard = withCurrentActivity().findViewById(view);
+
+        ColorDrawable gameBoardBackground = (ColorDrawable) gameBoard.getBackground();
+        int expectedColourResource = withCurrentApplicationContext().getColor(expectedColour);
+
+        assertThat(gameBoardBackground.getColor(), is(expectedColourResource));
     }
 }
