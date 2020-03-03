@@ -5,9 +5,13 @@ import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
+import com.katherinefreeman.queensdomdefender.playingfield.view.PlayingFieldFragment;
+
+import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +20,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
@@ -43,11 +48,19 @@ public class MainActivityTest {
         assertThatViewHasBackgroundColour(R.id.game_board, R.color.black);
     }
 
-
     @Test
     public void shouldShowPlayingField() {
         onView(withId(R.id.playing_field))
                 .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void shouldLoadPlayingFieldFragmentForPlayingFieldView() {
+        Fragment fragment = withCurrentActivity()
+                .getSupportFragmentManager()
+                .findFragmentById(R.id.playing_field);
+
+        assertThat(fragment, instanceOf(PlayingFieldFragment.class));
     }
 
     @Test
