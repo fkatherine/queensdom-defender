@@ -5,19 +5,15 @@ import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 
-import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.hasBackground;
-import static androidx.test.espresso.matcher.ViewMatchers.hasTextColor;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.is;
@@ -66,6 +62,64 @@ public class MainActivityTest {
 
         assertThat(height, is(525));
         assertThat(width, is(1050));
+    }
+
+    @Test
+    public void shouldShowEndTurn() {
+        onView(withId(R.id.end_turn))
+                .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void shouldHaveBlueBackgroundForEndTurn() {
+        assertThatViewHasBackgroundColour(R.id.end_turn, R.color.blue);
+    }
+
+    @Test
+    public void shouldHaveMinimumDimensionsForEndTurn() {
+        int height = withCurrentActivity().findViewById(R.id.end_turn).getHeight();
+        int width = withCurrentActivity().findViewById(R.id.end_turn).getWidth();
+
+        assertThat(height, is(262));
+        assertThat(width, is(262));
+    }
+
+    @Test
+    public void shouldShowGameStatusTracker() {
+        onView(withId(R.id.game_status_tracker))
+                .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void shouldHaveGreenBackgroundForGameStatusTracker() {
+        assertThatViewHasBackgroundColour(R.id.game_status_tracker, R.color.green);
+    }
+
+    @Test
+    public void shouldHaveMinimumDimensionsForGameStatusTracker() {
+        int height = withCurrentActivity().findViewById(R.id.game_status_tracker).getHeight();
+        int width = withCurrentActivity().findViewById(R.id.game_status_tracker).getWidth();
+
+        assertThat(height, is(525));
+        assertThat(width, is(262));
+    }
+
+    @Test
+    public void shouldShowHeroHand() {
+        onView(withId(R.id.hero_hand))
+                .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void shouldHaveYellowBackgroundForHeroHand() {
+        assertThatViewHasBackgroundColour(R.id.hero_hand, R.color.yellow);
+    }
+
+    @Test
+    public void shouldHaveMinimumDimensionsForHeroHand() {
+        int height = withCurrentActivity().findViewById(R.id.hero_hand).getHeight();
+
+        assertThat(height, is(262));
     }
 
     private MainActivity withCurrentActivity() {

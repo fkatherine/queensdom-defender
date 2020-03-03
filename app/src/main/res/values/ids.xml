@@ -2,4 +2,7 @@
 <resources>
     <item name="game_board" type="id" />
     <item name="playing_field" type="id" />
+    <item name="end_turn_button" type="id" />
+    <item name="game_status_tracker" type="id" />
+    <item name="hero_hand" type="id" />
 </resources>
