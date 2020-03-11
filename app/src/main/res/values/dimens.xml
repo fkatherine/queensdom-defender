@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Playing field character card -->
+    <dimen name="playing_field_character_card_attribute_padding">10dp</dimen>
+</resources>
