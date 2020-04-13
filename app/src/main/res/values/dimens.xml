@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Playing field character card -->
-    <dimen name="playing_field_character_card_attribute_padding">10dp</dimen>
+    <dimen name="card_padding">5dp</dimen>
+    <dimen name="card_attribute_spacing">5dp</dimen>
+    <dimen name="card_attribute_text_size">10sp</dimen>
 </resources>

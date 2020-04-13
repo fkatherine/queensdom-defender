@@ -5,4 +5,5 @@
     <item name="end_turn_button" type="id" />
     <item name="game_status_tracker" type="id" />
     <item name="hero_hand" type="id" />
+    <item name="playing_field_hero_character_card_list" type="id" />
 </resources>

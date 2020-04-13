@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/energy_attribute"
@@ -15,22 +15,22 @@
             android:id="@+id/energy_attribute_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/playing_field_character_card_attribute_padding"
+            android:padding="@dimen/card_attribute_spacing"
             android:text="@string/card_energy_attribute_label" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/playing_field_character_card_attribute_padding"
+            android:padding="@dimen/card_attribute_spacing"
             android:text="1"
             app:layout_constraintLeft_toRightOf="@id/energy_attribute_label" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/character_card_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/playing_field_character_card_attribute_padding"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="@dimen/card_attribute_spacing"
         android:src="@drawable/character_card_09_archer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -56,13 +56,13 @@
             android:id="@+id/attack_points_attribute_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/playing_field_character_card_attribute_padding"
+            android:padding="@dimen/card_attribute_spacing"
             android:text="@string/card_attack_points_attribute_label" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/playing_field_character_card_attribute_padding"
+            android:padding="@dimen/card_attribute_spacing"
             android:text="1"
             app:layout_constraintLeft_toRightOf="@id/attack_points_attribute_label" />
 
@@ -79,13 +79,13 @@
             android:id="@+id/health_points_attribute_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/playing_field_character_card_attribute_padding"
+            android:padding="@dimen/card_attribute_spacing"
             android:text="@string/card_health_points_attribute_label" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/playing_field_character_card_attribute_padding"
+            android:padding="@dimen/card_attribute_spacing"
             android:text="1"
             app:layout_constraintLeft_toRightOf="@id/health_points_attribute_label" />
     </androidx.constraintlayout.widget.ConstraintLayout>

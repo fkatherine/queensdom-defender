@@ -4,6 +4,8 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    dataBinding.enabled = true
+
     defaultConfig {
         applicationId "com.katherinefreeman.queensdomdefender"
         minSdkVersion 23
@@ -20,6 +22,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layouts/playing_field',
+                    'src/main/res/layouts/hero_hand',
+                    'src/main/res/layouts/card',
+                    'src/main/res/layouts/main',
+                    'src/main/res/layouts',
+                    'src/main/res'
+            ]
+        }
+    }
 
 }
 
@@ -28,9 +42,16 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
+
     testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
+
+    debugImplementation 'androidx.fragment:fragment-testing:1.2.2'
+
 }
