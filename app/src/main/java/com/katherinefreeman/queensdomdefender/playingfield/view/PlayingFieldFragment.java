@@ -27,10 +27,20 @@ public class PlayingFieldFragment extends Fragment {
     ) {
         FragmentPlayingFieldBinding binding = FragmentPlayingFieldBinding.inflate(inflater, container, false);
 
+        configureOpponentBuildingCards(binding);
         configureOpponentCharacterCards(binding);
         configureHeroCharacterCards(binding);
+        configureHeroBuildingCards(binding);
 
         return binding.getRoot();
+    }
+
+    private void configureOpponentBuildingCards(FragmentPlayingFieldBinding binding) {
+        BuildingCardAdapter buildingCardAdapter = new BuildingCardAdapter(OPPONENT);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
+        binding.playingFieldOpponentBuildingCardList.setLayoutManager(linearLayoutManager);
+        binding.playingFieldOpponentBuildingCardList.setAdapter(buildingCardAdapter);
+        binding.playingFieldOpponentBuildingCardList.setHasFixedSize(true);
     }
 
     private void configureOpponentCharacterCards(FragmentPlayingFieldBinding binding) {
@@ -41,6 +51,14 @@ public class PlayingFieldFragment extends Fragment {
         binding.playingFieldOpponentCharacterCardList.setHasFixedSize(true);
     }
 
+    private void configureHeroBuildingCards(FragmentPlayingFieldBinding binding) {
+        BuildingCardAdapter buildingCardAdapter = new BuildingCardAdapter(HERO);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
+        binding.playingFieldHeroBuildingCardList.setLayoutManager(linearLayoutManager);
+        binding.playingFieldHeroBuildingCardList.setAdapter(buildingCardAdapter);
+        binding.playingFieldHeroBuildingCardList.setHasFixedSize(true);
+    }
+
     private void configureHeroCharacterCards(FragmentPlayingFieldBinding binding) {
         CharacterCardAdapter characterCardAdapter = new CharacterCardAdapter(HERO);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -48,4 +66,6 @@ public class PlayingFieldFragment extends Fragment {
         binding.playingFieldHeroCharacterCardList.setAdapter(characterCardAdapter);
         binding.playingFieldHeroCharacterCardList.setHasFixedSize(true);
     }
+
+
 }

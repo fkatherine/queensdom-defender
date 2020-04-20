@@ -5,31 +5,27 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="@dimen/card_padding">
 
         <include
             android:id="@+id/attack_attribute"
-            layout="@layout/layout_card_attribute"
+            layout="@layout/opponent_layout_card_attribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/card_attribute_spacing"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             bind:name="@{@string/card_attack_points_attribute_label}"
-            bind:rotation="@{180f}"
             bind:value="@{1}" />
 
         <include
             android:id="@+id/health_attribute"
-            layout="@layout/layout_card_attribute"
+            layout="@layout/opponent_layout_card_attribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/card_attribute_spacing"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             bind:name="@{@string/card_health_points_attribute_label}"
-            bind:rotation="@{180f}"
             bind:value="@{1}" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -38,6 +34,7 @@
             android:layout_height="50dp"
             android:rotation="180"
             android:src="@drawable/character_card_09_archer"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/attack_attribute" />

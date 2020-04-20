@@ -19,18 +19,22 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rotation="180"
+            android:text="@{String.valueOf(value)}"
+            android:textSize="@dimen/card_attribute_text_size"
+            app:layout_constraintRight_toLeftOf="@id/attribute_label" />
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/attribute_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:rotation="180"
             android:text="@{name}"
-            android:textSize="@dimen/card_attribute_text_size" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{String.valueOf(value)}"
             android:textSize="@dimen/card_attribute_text_size"
-            app:layout_constraintLeft_toRightOf="@id/attribute_label" />
+            app:layout_constraintRight_toRightOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
