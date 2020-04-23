@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Playing field character card -->
+    <!-- Card sizing -->
     <dimen name="card_padding">5dp</dimen>
     <dimen name="card_attribute_spacing">5dp</dimen>
     <dimen name="card_attribute_text_size">10sp</dimen>
+
+    <!-- Hero hand sizing -->
+    <dimen name="hero_hand_card_side_padding">23dp</dimen>
+    <dimen name="hero_hand_card_image_size">50dp</dimen>
+    <dimen name="hero_hand_height">100dp</dimen>
+
+    <!-- Playing field sizing -->
+    <dimen name="playing_field_width">400dp</dimen>
+    <dimen name="playing_field_height">200dp</dimen>
+
+    <!-- End turn button sizing -->
+    <dimen name="end_turn_button_size">100dp</dimen>
+
+    <!-- Game status tracker sizing -->
+    <dimen name="game_status_tracker_height">200dp</dimen>
+    <dimen name="game_status_tracker_width">100dp</dimen>
+
 </resources>
