@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="statusLabel"
+            type="String" />
+
+        <variable
+            name="valueRemaining"
+            type="Integer" />
+
+        <variable
+            name="valueTotal"
+            type="Integer" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/attribute_label"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@{statusLabel}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/attribute_value_remaining"
+            tools:text="HP:" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/attribute_value_remaining"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@{String.valueOf(valueRemaining)}"
+            app:layout_constraintLeft_toRightOf="@id/attribute_label"
+            app:layout_constraintRight_toLeftOf="@id/attribute_separator"
+            tools:text="20" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/attribute_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/game_status_attribute_separator"
+            app:layout_constraintLeft_toRightOf="@id/attribute_value_remaining"
+            app:layout_constraintRight_toLeftOf="@id/attribute_value_total" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/attribute_value_total"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@{String.valueOf(valueTotal)}"
+            app:layout_constraintLeft_toRightOf="@id/attribute_separator"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="20" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

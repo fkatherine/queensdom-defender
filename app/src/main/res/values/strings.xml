@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Queensdom Defender</string>
+
+    <!-- Card -->
     <string name="card_energy_attribute_label">Energy:&#160;</string>
     <string name="card_attack_points_attribute_label">AP:&#160;</string>
     <string name="card_health_points_attribute_label">HP:&#160;</string>
@@ -8,5 +10,10 @@
     <string name="opponent_turn_label">Opponent\'s Turn</string>
     <string name="hero_turn_label">Your Turn</string>
     <string name="hero_end_turn_button">END TURN</string>
+
+    <!-- Game status -->
+    <string name="game_status_health_attribute_label">HP:</string>
+    <string name="game_status_energy_attribute_label">Energy:</string>
+    <string name="game_status_attribute_separator">/</string>
 
 </resources>

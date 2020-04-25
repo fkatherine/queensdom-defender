@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/game_status_opponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/opponent_health_attribute"
+                layout="@layout/layout_game_status_attribute_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:statusLabel="@{@string/game_status_health_attribute_label}"
+                bind:valueRemaining="@{20}"
+                bind:valueTotal="@{20}" />
+
+            <include
+                android:id="@+id/opponent_energy_attribute"
+                layout="@layout/layout_game_status_attribute_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/game_status_tracker_margin"
+                app:layout_constraintTop_toBottomOf="@id/opponent_health_attribute"
+                bind:statusLabel="@{@string/game_status_energy_attribute_label}"
+                bind:valueRemaining="@{1}"
+                bind:valueTotal="@{1}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/game_status_hero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <include
+                android:id="@+id/hero_health_attribute"
+                layout="@layout/layout_game_status_attribute_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:statusLabel="@{@string/game_status_health_attribute_label}"
+                bind:valueRemaining="@{20}"
+                bind:valueTotal="@{20}" />
+
+            <include
+                android:id="@+id/hero_energy_attribute"
+                layout="@layout/layout_game_status_attribute_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/game_status_tracker_margin"
+                app:layout_constraintTop_toBottomOf="@id/hero_health_attribute"
+                bind:statusLabel="@{@string/game_status_energy_attribute_label}"
+                bind:valueRemaining="@{1}"
+                bind:valueTotal="@{1}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

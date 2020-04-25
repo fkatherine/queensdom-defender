@@ -21,5 +21,6 @@
     <!-- Game status tracker sizing -->
     <dimen name="game_status_tracker_height">200dp</dimen>
     <dimen name="game_status_tracker_width">100dp</dimen>
+    <dimen name="game_status_tracker_margin">10dp</dimen>
 
 </resources>
