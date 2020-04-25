@@ -11,6 +11,9 @@
     <string name="hero_turn_label">Your Turn</string>
     <string name="hero_end_turn_button">END TURN</string>
 
+    <!-- game log -->
+    <string name="game_log_item_beginning">\>&#160;</string>
+
     <!-- Game status -->
     <string name="game_status_health_attribute_label">HP:</string>
     <string name="game_status_energy_attribute_label">Energy:</string>

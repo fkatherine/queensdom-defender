@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.katherinefreeman.queensdomdefender.R;
 import com.katherinefreeman.queensdomdefender.databinding.LayoutHeroHandCardBinding;
-import com.katherinefreeman.queensdomdefender.playingfield.view.CharacterCardAdapter;
 
 public class HeroHandAdapter extends RecyclerView.Adapter<HeroHandAdapter.ViewHolder> {
 

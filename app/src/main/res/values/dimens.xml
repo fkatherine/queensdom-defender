@@ -23,4 +23,7 @@
     <dimen name="game_status_tracker_width">100dp</dimen>
     <dimen name="game_status_tracker_margin">10dp</dimen>
 
+    <!-- Game log sizing -->
+    <dimen name="game_log_text_size">10sp</dimen>
+
 </resources>
