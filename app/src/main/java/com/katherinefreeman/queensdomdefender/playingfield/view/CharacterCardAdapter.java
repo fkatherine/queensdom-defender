@@ -9,16 +9,16 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.katherinefreeman.queensdomdefender.R;
-import com.katherinefreeman.queensdomdefender.playingfield.model.PlayerCardType;
+import com.katherinefreeman.queensdomdefender.player.model.PlayerType;
 
-import static com.katherinefreeman.queensdomdefender.playingfield.model.PlayerCardType.OPPONENT;
+import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.OPPONENT;
 
 public class CharacterCardAdapter extends RecyclerView.Adapter<CharacterCardAdapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
-    private PlayerCardType type;
+    private PlayerType type;
 
-    public CharacterCardAdapter(PlayerCardType type) {
+    public CharacterCardAdapter(PlayerType type) {
         this.type = type;
     }
 

@@ -79,19 +79,19 @@ public class MainActivityTest {
 
     @Test
     public void shouldShowEndTurn() {
-        onView(withId(R.id.end_turn))
+        onView(withId(R.id.turn_status))
                 .check(matches(isDisplayed()));
     }
 
     @Test
     public void shouldHaveBlueBackgroundForEndTurn() {
-        assertThatViewHasBackgroundColour(R.id.end_turn, R.color.blue);
+        assertThatViewHasBackgroundColour(R.id.turn_status, R.color.blue);
     }
 
     @Test
     public void shouldHaveMinimumDimensionsForEndTurn() {
-        int height = withCurrentActivity().findViewById(R.id.end_turn).getHeight();
-        int width = withCurrentActivity().findViewById(R.id.end_turn).getWidth();
+        int height = withCurrentActivity().findViewById(R.id.turn_status).getHeight();
+        int width = withCurrentActivity().findViewById(R.id.turn_status).getWidth();
 
         assertThat(height, is(262));
         assertThat(width, is(262));

@@ -25,6 +25,7 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
+                    'src/main/res/layouts/turn_status',
                     'src/main/res/layouts/playing_field',
                     'src/main/res/layouts/hero_hand',
                     'src/main/res/layouts/card',
@@ -33,6 +34,10 @@ android {
                     'src/main/res'
             ]
         }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 
 }

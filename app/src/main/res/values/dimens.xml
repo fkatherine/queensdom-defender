@@ -14,8 +14,9 @@
     <dimen name="playing_field_width">400dp</dimen>
     <dimen name="playing_field_height">200dp</dimen>
 
-    <!-- End turn button sizing -->
-    <dimen name="end_turn_button_size">100dp</dimen>
+    <!-- Turn Status sizing -->
+    <dimen name="turn_status_size">100dp</dimen>
+    <dimen name="turn_status_text_size">14sp</dimen>
 
     <!-- Game status tracker sizing -->
     <dimen name="game_status_tracker_height">200dp</dimen>

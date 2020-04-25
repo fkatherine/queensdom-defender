@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TurnStatusTextStyle">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/turn_status_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
 </resources>

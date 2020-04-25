@@ -11,10 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.katherinefreeman.queensdomdefender.databinding.FragmentPlayingFieldBinding;
-import com.katherinefreeman.queensdomdefender.playingfield.model.PlayerCardType;
 
-import static com.katherinefreeman.queensdomdefender.playingfield.model.PlayerCardType.HERO;
-import static com.katherinefreeman.queensdomdefender.playingfield.model.PlayerCardType.OPPONENT;
+import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.HERO;
+import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.OPPONENT;
 
 public class PlayingFieldFragment extends Fragment {
 
