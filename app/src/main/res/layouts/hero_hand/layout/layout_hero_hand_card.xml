@@ -5,10 +5,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/hero_hand_card_side_margin"
+        android:layout_marginEnd="@dimen/hero_hand_card_side_margin"
+        android:background="@drawable/card_background"
+        android:padding="@dimen/card_padding"
         android:paddingStart="@dimen/hero_hand_card_side_padding"
-        android:paddingEnd="@dimen/hero_hand_card_side_padding"
-        android:padding="@dimen/card_padding">
+        android:paddingEnd="@dimen/hero_hand_card_side_padding">
 
         <include
             android:id="@+id/energy_attribute"
@@ -37,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Archer"
+            android:textColor="@color/applicationTextColour"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/character_card_image" />
@@ -46,9 +50,9 @@
             layout="@layout/layout_card_attribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/character_card_name"
-            app:layout_constraintBottom_toBottomOf="parent"
             bind:name="@{@string/card_attack_points_attribute_label}"
             bind:rotation="@{0f}"
             bind:value="@{1}" />
@@ -58,9 +62,9 @@
             layout="@layout/layout_card_attribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/character_card_name"
-            app:layout_constraintBottom_toBottomOf="parent"
             bind:name="@{@string/card_health_points_attribute_label}"
             bind:rotation="@{0f}"
             bind:value="@{1}" />

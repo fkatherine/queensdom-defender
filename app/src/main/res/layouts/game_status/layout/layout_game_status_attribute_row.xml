@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@{statusLabel}"
+            android:textColor="@color/applicationTextColour"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/attribute_value_remaining"
             tools:text="HP:" />
@@ -37,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@{String.valueOf(valueRemaining)}"
+            android:textColor="@color/applicationTextColour"
             app:layout_constraintLeft_toRightOf="@id/attribute_label"
             app:layout_constraintRight_toLeftOf="@id/attribute_separator"
             tools:text="20" />
@@ -46,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/game_status_attribute_separator"
+            android:textColor="@color/applicationTextColour"
             app:layout_constraintLeft_toRightOf="@id/attribute_value_remaining"
             app:layout_constraintRight_toLeftOf="@id/attribute_value_total" />
 
@@ -54,6 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@{String.valueOf(valueTotal)}"
+            android:textColor="@color/applicationTextColour"
             app:layout_constraintLeft_toRightOf="@id/attribute_separator"
             app:layout_constraintRight_toRightOf="parent"
             tools:text="20" />

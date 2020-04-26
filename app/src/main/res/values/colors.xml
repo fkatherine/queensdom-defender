@@ -3,10 +3,47 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <!-- Colour theme  -->
+    <color name="rusticBeige">#998770</color>
+    <color name="paleBlue">#969DA2</color>
+    <color name="rusticPurple">#81676A</color>
+    <color name="rusticRed">#A16C67</color>
+    <color name="blueBlack">#393547</color>
+    <color name="jadeGreen">#4D695A</color>
+    <color name="limeGreen">#9DAC64</color>
+    <color name="darkBrown">#332726</color>
+    <color name="rusticYellow">#DFDB51</color>
+
+
     <color name="black">#000000</color>
     <color name="red">#FF1100</color>
-    <color name="blue">#0000FF</color>
-    <color name="green">#00FF00</color>
-    <color name="yellow">#FFFF00</color>
     <color name="white">#FFFFFF</color>
+
+    <!-- Application -->
+    <color name="applicationBackground">@color/jadeGreen</color>
+    <color name="applicationTextColour">@color/blueBlack</color>
+
+    <!-- Playing Field -->
+    <color name="playingFieldBackground">@color/darkBrown</color>
+
+    <!-- Cards -->
+    <color name="cardBackground">@color/rusticBeige</color>
+    <color name="cardBorder">@color/black</color>
+
+    <!-- Turn Status -->
+    <color name="turnStatusBackground">@color/rusticPurple</color>
+    <color name="endTurnButtonBackground">@color/rusticRed</color>
+    <color name="endTurnButtonText">@color/white</color>
+
+    <!-- Game log -->
+    <color name="gameLogBackground">@color/paleBlue</color>
+    <color name="errorTextColour">@color/red</color>
+
+    <!-- Game status -->
+    <color name="gameStatusBackground">@color/limeGreen</color>
+
+    <!-- Hero hand -->
+    <color name="heroHandBackground">@color/rusticYellow</color>
+
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/game_board"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/applicationBackground"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -13,12 +13,12 @@
         android:name="com.katherinefreeman.queensdomdefender.gamelog.view.GameLogFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
-        app:layout_constraintHeight_percent="0.15"
+        android:background="@color/gameLogBackground"
+        app:layout_constraintHeight_percent="@dimen/game_log_height_percentage"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.6" />
+        app:layout_constraintWidth_percent="@dimen/game_log_width_percentage" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_guideline"
@@ -37,44 +37,46 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/playing_field"
         android:name="com.katherinefreeman.queensdomdefender.playingfield.view.PlayingFieldFragment"
-        android:layout_width="@dimen/playing_field_width"
-        android:layout_height="@dimen/playing_field_height"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/playingFieldBackground"
         app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+        app:layout_constraintHeight_percent="@dimen/playing_field_height_percentage"
         app:layout_constraintLeft_toRightOf="@id/game_status_tracker"
-        app:layout_constraintRight_toLeftOf="@id/turn_status">
-
-    </androidx.fragment.app.FragmentContainerView>
+        app:layout_constraintRight_toLeftOf="@id/turn_status"
+        app:layout_constraintWidth_percent="@dimen/playing_field_width_percentage" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/turn_status"
         android:name="com.katherinefreeman.queensdomdefender.turnstatus.view.TurnStatusFragment"
-        android:layout_width="@dimen/turn_status_size"
-        android:layout_height="@dimen/turn_status_size"
-        android:background="@color/blue"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/turnStatusBackground"
         app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+        app:layout_constraintHeight_percent="@dimen/turn_status_height_percentage"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/top_guideline">
-
-    </androidx.fragment.app.FragmentContainerView>
+        app:layout_constraintTop_toTopOf="@id/top_guideline"
+        app:layout_constraintWidth_percent="@dimen/turn_status_width_percentage" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/game_status_tracker"
         android:name="com.katherinefreeman.queensdomdefender.gamestatus.view.GameStatusFragment"
-        android:layout_width="@dimen/game_status_tracker_width"
-        android:layout_height="@dimen/game_status_tracker_height"
-        android:background="@color/green"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/gameStatusBackground"
         app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-    </androidx.fragment.app.FragmentContainerView>
+        app:layout_constraintHeight_percent="@dimen/game_status_tracker_height_percentage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintWidth_percent="@dimen/game_status_tracker_width_percentage" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/hero_hand"
         android:name="com.katherinefreeman.queensdomdefender.herohand.view.HeroHandFragment"
         android:layout_width="match_parent"
-        android:background="@color/yellow"
-        android:layout_height="@dimen/hero_hand_height"
+        android:layout_height="0dp"
+        android:background="@color/heroHandBackground"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="@dimen/hero_hand_height_percentage"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 

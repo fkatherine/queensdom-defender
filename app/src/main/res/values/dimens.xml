@@ -4,26 +4,32 @@
     <dimen name="card_padding">5dp</dimen>
     <dimen name="card_attribute_spacing">5dp</dimen>
     <dimen name="card_attribute_text_size">10sp</dimen>
+    <dimen name="card_border_size">1dp</dimen>
+    <dimen name="card_border_radius">10dp</dimen>
 
     <!-- Hero hand sizing -->
-    <dimen name="hero_hand_card_side_padding">23dp</dimen>
+    <dimen name="hero_hand_card_side_margin">14dp</dimen>
     <dimen name="hero_hand_card_image_size">50dp</dimen>
-    <dimen name="hero_hand_height">100dp</dimen>
+    <dimen name="hero_hand_height_percentage">0.25</dimen>
+    <dimen name="hero_hand_card_side_padding">10dp</dimen>
 
     <!-- Playing field sizing -->
-    <dimen name="playing_field_width">400dp</dimen>
-    <dimen name="playing_field_height">200dp</dimen>
+    <dimen name="playing_field_width_percentage">0.6</dimen>
+    <dimen name="playing_field_height_percentage">0.5</dimen>
 
     <!-- Turn Status sizing -->
-    <dimen name="turn_status_size">100dp</dimen>
+    <dimen name="turn_status_width_percentage">0.15</dimen>
+    <dimen name="turn_status_height_percentage">0.25</dimen>
     <dimen name="turn_status_text_size">14sp</dimen>
 
     <!-- Game status tracker sizing -->
-    <dimen name="game_status_tracker_height">200dp</dimen>
-    <dimen name="game_status_tracker_width">100dp</dimen>
+    <dimen name="game_status_tracker_width_percentage">0.15</dimen>
+    <dimen name="game_status_tracker_height_percentage">0.5</dimen>
     <dimen name="game_status_tracker_margin">10dp</dimen>
 
     <!-- Game log sizing -->
     <dimen name="game_log_text_size">10sp</dimen>
+    <dimen name="game_log_width_percentage">0.6</dimen>
+    <dimen name="game_log_height_percentage">0.15</dimen>
 
 </resources>
