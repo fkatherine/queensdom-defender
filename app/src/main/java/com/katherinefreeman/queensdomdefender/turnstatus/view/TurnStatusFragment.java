@@ -1,5 +1,6 @@
 package com.katherinefreeman.queensdomdefender.turnstatus.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
+import com.katherinefreeman.queensdomdefender.Application;
 import com.katherinefreeman.queensdomdefender.databinding.FragmentTurnStatusBinding;
 import com.katherinefreeman.queensdomdefender.turnstatus.model.TurnStatusFragmentViewModel;
+
+import javax.inject.Inject;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -25,16 +28,31 @@ public class TurnStatusFragment extends Fragment {
         view.setVisibility(visibility);
     }
 
+    @Inject
+    TurnStatusFragmentViewModel viewModel;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        injectFragmentDependencies(context);
+
+        super.onAttach(context);
+    }
+
+    private void injectFragmentDependencies(Context context) {
+        ((Application) context.getApplicationContext())
+                .getApplicationComponent()
+                .inject(this);
+    }
+
     @Nullable
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater,
             @Nullable ViewGroup container,
-            @Nullable Bundle savedInstanceState) {
-
+            @Nullable Bundle savedInstanceState
+    ) {
         FragmentTurnStatusBinding binding = FragmentTurnStatusBinding.inflate(inflater, container, false);
 
-        final TurnStatusFragmentViewModel viewModel = new ViewModelProvider(this).get(TurnStatusFragmentViewModel.class);
         binding.setViewModel(viewModel);
 
         return binding.getRoot();

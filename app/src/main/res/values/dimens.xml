@@ -10,7 +10,7 @@
     <!-- Hero hand sizing -->
     <dimen name="hero_hand_card_side_margin">14dp</dimen>
     <dimen name="hero_hand_card_image_size">50dp</dimen>
-    <dimen name="hero_hand_height_percentage">0.25</dimen>
+    <dimen name="hero_hand_height_percentage">0.26</dimen>
     <dimen name="hero_hand_card_side_padding">10dp</dimen>
 
     <!-- Playing field sizing -->

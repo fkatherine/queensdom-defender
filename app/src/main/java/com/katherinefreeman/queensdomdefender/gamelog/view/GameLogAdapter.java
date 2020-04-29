@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableArrayList;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.katherinefreeman.queensdomdefender.R;
@@ -16,9 +17,9 @@ import java.util.List;
 public class GameLogAdapter extends RecyclerView.Adapter<GameLogAdapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
-    private List<GameLogItem> logItems;
+    private ObservableArrayList<GameLogItem> logItems;
 
-    public GameLogAdapter(List<GameLogItem> logItems) {
+    public GameLogAdapter(ObservableArrayList<GameLogItem> logItems) {
         this.logItems = logItems;
     }
 
