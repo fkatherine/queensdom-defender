@@ -1,6 +1,7 @@
 package com.katherinefreeman.queensdomdefender;
 
 import com.katherinefreeman.queensdomdefender.gamelog.view.GameLogFragment;
+import com.katherinefreeman.queensdomdefender.herohand.view.HeroHandFragment;
 import com.katherinefreeman.queensdomdefender.turnstatus.view.TurnStatusFragment;
 
 import javax.inject.Singleton;
@@ -17,5 +18,6 @@ public interface ApplicationComponent {
 
     void inject(GameLogFragment gameLogFragment);
     void inject(TurnStatusFragment turnStatusFragment);
+    void inject(HeroHandFragment heroHandFragment);
 
 }

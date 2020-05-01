@@ -5,15 +5,22 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.katherinefreeman.queensdomdefender.R;
+import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.databinding.LayoutHeroHandCardBinding;
+
+import java.util.List;
 
 public class HeroHandAdapter extends RecyclerView.Adapter<HeroHandAdapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
+    private List<Card> hand;
+
+    public HeroHandAdapter(List<Card> hand) {
+        this.hand = hand;
+    }
 
     @NonNull
     @Override
@@ -27,24 +34,25 @@ public class HeroHandAdapter extends RecyclerView.Adapter<HeroHandAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull HeroHandAdapter.ViewHolder holder, int position) {
-
+        Card card = hand.get(position);
+        holder.getBinding().setCard(card);
     }
 
     @Override
     public int getItemCount() {
-        return 7;
+        return hand.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ViewDataBinding binding;
+        private LayoutHeroHandCardBinding binding;
 
-        public ViewHolder(ViewDataBinding binding) {
+        public ViewHolder(LayoutHeroHandCardBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
 
-        public ViewDataBinding getBinding() {
+        public LayoutHeroHandCardBinding getBinding() {
             return binding;
         }
     }

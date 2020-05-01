@@ -1,6 +1,9 @@
 package com.katherinefreeman.queensdomdefender.event;
 
+import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.gamelog.model.GameLogItem;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,6 +22,10 @@ public class EventBus {
         post(new GameLogItem(text, textColour));
     }
 
+    public void userCardsDrawn(List<Card> hand) {
+        post(new UserCardsDrawnEvent(hand));
+    }
+
     private void post(Object event) {
         eventBus.post(event);
     }
@@ -34,4 +41,5 @@ public class EventBus {
             eventBus.unregister(subscriber);
         }
     }
+
 }

@@ -2,37 +2,37 @@ package com.katherinefreeman.queensdomdefender.player.model;
 
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Player {
 
-    private List<Card> deck;
-    private List<Card> hand;
-    private List<Card> field;
+    private ArrayList<Card> deck;
+    private ArrayList<Card> hand;
+    private ArrayList<Card> field;
     private int health;
     private int energy;
 
-    public List<Card> getDeck() {
+    public ArrayList<Card> getDeck() {
         return deck;
     }
 
-    public void setDeck(List<Card> deck) {
+    public void setDeck(ArrayList<Card> deck) {
         this.deck = deck;
     }
 
-    public List<Card> getHand() {
+    public ArrayList<Card> getHand() {
         return hand;
     }
 
-    public void setHand(List<Card> hand) {
+    public void setHand(ArrayList<Card> hand) {
         this.hand = hand;
     }
 
-    public List<Card> getField() {
+    public ArrayList<Card> getField() {
         return field;
     }
 
-    public void setField(List<Card> field) {
+    public void setField(ArrayList<Card> field) {
         this.field = field;
     }
 
