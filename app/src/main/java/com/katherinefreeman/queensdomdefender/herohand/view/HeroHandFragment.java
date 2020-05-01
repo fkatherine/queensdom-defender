@@ -11,10 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.databinding.ObservableList;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView.LayoutParams;
 
 import com.katherinefreeman.queensdomdefender.Application;
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.databinding.FragmentHeroHandBinding;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
 
@@ -53,10 +56,21 @@ public class HeroHandFragment extends Fragment {
 
     private void configureHeroHandCards(FragmentHeroHandBinding binding) {
         HeroHandAdapter heroHandAdapter = new HeroHandAdapter(viewModel.hand);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager linearLayoutManager = getConfiguredHeroHandCardLayout();
         binding.heroHandCardList.setLayoutManager(linearLayoutManager);
         binding.heroHandCardList.setAdapter(heroHandAdapter);
         binding.heroHandCardList.setHasFixedSize(true);
+    }
+
+    @NotNull
+    private LinearLayoutManager getConfiguredHeroHandCardLayout() {
+        return new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false) {
+            @Override
+            public boolean checkLayoutParams(LayoutParams layoutParams) {
+                layoutParams.width = getWidth() / 8;
+                return true;
+            }
+        };
     }
 
     private void configureHandListener(FragmentHeroHandBinding binding) {
