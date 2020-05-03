@@ -19,6 +19,9 @@ public class DeckBuilder {
             new Card("Fish", R.drawable.character_card_09_archer, 2, 2, 2, CHARACTER),
             new Card("Monk", R.drawable.character_card_09_archer, 3, 3, 3, CHARACTER),
             new Card("Scarecrow", R.drawable.character_card_09_archer, 4, 4, 4, CHARACTER),
+            new Card("Army", R.drawable.character_card_09_archer, 10, 8, 10, CHARACTER),
+            new Card("Statue", R.drawable.character_card_09_archer, 1, 1, 0, CHARACTER),
+            new Card("Skull", R.drawable.character_card_09_archer, 1, 1, 0, CHARACTER),
             new Card("Armoured Knight", R.drawable.character_card_09_archer, 5, 5, 5, CHARACTER)
     ) );
 

@@ -3,7 +3,7 @@ package com.katherinefreeman.queensdomdefender.herohand.view;
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.card.model.CardType;
 import com.katherinefreeman.queensdomdefender.event.EventBus;
-import com.katherinefreeman.queensdomdefender.event.UserCardsDrawnEvent;
+import com.katherinefreeman.queensdomdefender.event.UserHandUpdatedEvent;
 
 import org.junit.Test;
 
@@ -33,11 +33,11 @@ public class HeroHandFragmentViewModelUnitTest {
     }
 
     @Test
-    public void shouldUpdateHandOnUserCardsDrawn() {
-        UserCardsDrawnEvent event = new UserCardsDrawnEvent(cardsDrawn);
+    public void shouldUpdateHandOnUserHandUpdated() {
+        UserHandUpdatedEvent event = new UserHandUpdatedEvent(cardsDrawn);
 
-        target.onUserCardsDrawn(event);
+        target.onUserHandUpdated(event);
 
-        assertThat(target.hand.containsAll(cardsDrawn), is(true));
+        assertThat(target.hand, is(cardsDrawn));
     }
 }

@@ -2,6 +2,8 @@ package com.katherinefreeman.queensdomdefender.event;
 
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.gamelog.model.GameLogItem;
+import com.katherinefreeman.queensdomdefender.player.model.Player;
+import com.katherinefreeman.queensdomdefender.player.model.PlayerType;
 
 import java.util.List;
 
@@ -22,8 +24,24 @@ public class EventBus {
         post(new GameLogItem(text, textColour));
     }
 
-    public void userCardsDrawn(List<Card> hand) {
-        post(new UserCardsDrawnEvent(hand));
+    public void userHandUpdated(List<Card> hand) {
+        post(new UserHandUpdatedEvent(hand));
+    }
+
+    public void newTurnStarted(PlayerType playerType) {
+        post(new TurnStartedEvent(playerType));
+    }
+
+    public void turnEnded() {
+        post(new TurnEndedEvent());
+    }
+
+    public void playerStatusUpdated(Player player, PlayerType playerType) {
+        post(new PlayerStatusUpdatedEvent(player, playerType));
+    }
+
+    public void playerCardPlacementStageStarted(PlayerType playerType) {
+        post(new PlayerCardPlacementStageStartedEvent(playerType));
     }
 
     private void post(Object event) {
@@ -41,5 +59,6 @@ public class EventBus {
             eventBus.unregister(subscriber);
         }
     }
+
 
 }

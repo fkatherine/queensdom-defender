@@ -17,8 +17,6 @@ import com.katherinefreeman.queensdomdefender.Application;
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.databinding.FragmentHeroHandBinding;
 
-import org.jetbrains.annotations.NotNull;
-
 import javax.inject.Inject;
 
 public class HeroHandFragment extends Fragment {
@@ -62,7 +60,6 @@ public class HeroHandFragment extends Fragment {
         binding.heroHandCardList.setHasFixedSize(true);
     }
 
-    @NotNull
     private LinearLayoutManager getConfiguredHeroHandCardLayout() {
         return new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false) {
             @Override

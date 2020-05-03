@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.katherinefreeman.queensdomdefender.turnstatus.model.TurnStatusFragmentViewModel" />
+            type="com.katherinefreeman.queensdomdefender.turnstatus.view.TurnStatusFragmentViewModel" />
 
     </data>
 
@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="@{viewModel.currentPlayerType == PlayerType.OPPONENT}">
+            android:visibility="@{viewModel.currentPlayer == PlayerType.OPPONENT}">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/opponent_turn_status"
@@ -35,7 +35,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="@{viewModel.currentPlayerType == PlayerType.HERO}">
+            android:visibility="@{viewModel.currentPlayer == PlayerType.HERO}">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/hero_turn_status"
@@ -48,6 +48,7 @@
                 android:textColor="@color/applicationTextColour"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:onClick="@{() -> viewModel.onEndTurn()}"
                 android:id="@+id/hero_end_turn_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

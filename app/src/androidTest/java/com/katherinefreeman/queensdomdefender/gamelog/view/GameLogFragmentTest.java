@@ -3,7 +3,6 @@ package com.katherinefreeman.queensdomdefender.gamelog.view;
 import com.katherinefreeman.queensdomdefender.R;
 import com.katherinefreeman.queensdomdefender.TestApplicationResource;
 import com.katherinefreeman.queensdomdefender.event.EventBus;
-import com.katherinefreeman.queensdomdefender.gamelog.model.GameLogItem;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,7 +30,7 @@ public class GameLogFragmentTest {
     public void shouldAddGameLogItemOnGameLogEvent() {
         launchInContainer(GameLogFragment.class);
 
-        eventBus.logGameEvent(new GameLogItem("Test game log", R.color.blueBlack));
+        eventBus.logGameEvent("Test game log", R.color.blueBlack);
 
         await().atMost(5, SECONDS).untilAsserted(() ->
                 onView(withId(R.id.game_log_contents))

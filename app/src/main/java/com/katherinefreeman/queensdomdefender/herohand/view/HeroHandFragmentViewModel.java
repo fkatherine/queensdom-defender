@@ -4,7 +4,7 @@ import androidx.databinding.ObservableArrayList;
 
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.event.EventBus;
-import com.katherinefreeman.queensdomdefender.event.UserCardsDrawnEvent;
+import com.katherinefreeman.queensdomdefender.event.UserHandUpdatedEvent;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -22,7 +22,8 @@ public class HeroHandFragmentViewModel {
     }
 
     @Subscribe
-    public void onUserCardsDrawn(UserCardsDrawnEvent event) {
-        hand.addAll(event.getCardsDrawn());
+    public void onUserHandUpdated(UserHandUpdatedEvent event) {
+        hand.clear();
+        hand.addAll(event.getUpdatedHand());
     }
 }

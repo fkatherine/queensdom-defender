@@ -1,7 +1,9 @@
 package com.katherinefreeman.queensdomdefender.player.service;
 
+import com.katherinefreeman.queensdomdefender.R;
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.card.service.CardService;
+import com.katherinefreeman.queensdomdefender.event.EventBus;
 import com.katherinefreeman.queensdomdefender.player.model.Player;
 
 import java.util.ArrayList;
@@ -9,14 +11,29 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_DRAWABLE_CARD_COUNT;
+import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_PLAYER_ENERGY;
+import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_PLAYER_HEALTH;
+import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.HERO;
+import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.OPPONENT;
+
 @Singleton
 public class PlayerService {
 
     private CardService cardService;
+    private EventBus eventBus;
+    private PlayerValidationService playerValidationService;
+    private OpponentService opponentService;
 
     @Inject
-    public PlayerService(CardService cardService) {
+    public PlayerService(CardService cardService,
+                         EventBus eventBus,
+                         PlayerValidationService playerValidationService,
+                         OpponentService opponentService) {
         this.cardService = cardService;
+        this.eventBus = eventBus;
+        this.playerValidationService = playerValidationService;
+        this.opponentService = opponentService;
     }
 
     public Player createNewPlayer() {
@@ -26,9 +43,48 @@ public class PlayerService {
         player.setDeck(deck);
         player.setHand(new ArrayList<>());
         player.setField(new ArrayList<>());
-        player.setHealth(20);
-        player.setEnergy(10);
+        player.setHealth(MAXIMUM_PLAYER_HEALTH);
+        player.setEnergy(MAXIMUM_PLAYER_ENERGY);
         return player;
     }
 
+    public void drawFirstUserHand(Player user) {
+        drawCardsForUser(user, MAXIMUM_DRAWABLE_CARD_COUNT);
+        eventBus.logGameEvent(String.format("You drew %d cards", MAXIMUM_DRAWABLE_CARD_COUNT), R.color.applicationTextColour);
+    }
+
+    private void drawCardsForUser(Player user, int count) {
+        cardService.drawCardsIntoHand(user, count);
+        eventBus.userHandUpdated(user.getHand());
+    }
+
+    public void drawFirstOpponentHand(Player opponent) {
+        cardService.drawCardsIntoHand(opponent, MAXIMUM_DRAWABLE_CARD_COUNT);
+        eventBus.logGameEvent(String.format("Opponent drew %d cards", MAXIMUM_DRAWABLE_CARD_COUNT), R.color.applicationTextColour);
+    }
+
+    public void startNewUserTurn(Player user) {
+        if (playerValidationService.canDrawCardFromDeck(user)) {
+            drawCardsForUser(user, 1);
+            eventBus.logGameEvent("You drew 1 card", R.color.applicationTextColour);
+        }
+
+        user.setEnergy(MAXIMUM_PLAYER_ENERGY);
+        eventBus.playerStatusUpdated(user, HERO);
+
+        eventBus.playerCardPlacementStageStarted(HERO);
+    }
+
+    public void startNewOpponentTurn(Player opponent) {
+        if (playerValidationService.canDrawCardFromDeck(opponent)) {
+            cardService.drawCardsIntoHand(opponent, 1);
+            eventBus.logGameEvent("Opponent drew 1 card", R.color.applicationTextColour);
+        }
+
+        opponent.setEnergy(MAXIMUM_PLAYER_ENERGY);
+        eventBus.playerStatusUpdated(opponent, OPPONENT);
+
+        opponentService.startCardPlacementTurn(opponent);
+
+    }
 }

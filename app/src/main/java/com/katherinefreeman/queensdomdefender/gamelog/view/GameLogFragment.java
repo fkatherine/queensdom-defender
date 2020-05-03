@@ -73,6 +73,7 @@ public class GameLogFragment extends Fragment {
             @Override
             public void onItemRangeInserted(ObservableList<GameLogItem> sender, int positionStart, int itemCount) {
                 binding.gameLog.getAdapter().notifyDataSetChanged();
+                binding.gameLog.scrollToPosition(viewModel.gameLogItems.size() - 1);
             }
 
             @Override

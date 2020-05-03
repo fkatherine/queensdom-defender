@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 
 import com.katherinefreeman.queensdomdefender.Application;
 import com.katherinefreeman.queensdomdefender.databinding.FragmentTurnStatusBinding;
-import com.katherinefreeman.queensdomdefender.turnstatus.model.TurnStatusFragmentViewModel;
 
 import javax.inject.Inject;
 
