@@ -17,7 +17,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.awaitility.Awaitility.await;
 
-
 public class GameLogFragmentTest {
 
     @Rule
@@ -37,4 +36,5 @@ public class GameLogFragmentTest {
                         .check(matches(withText("Test game log")))
         );
     }
+
 }

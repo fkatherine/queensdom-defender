@@ -85,6 +85,6 @@ public class PlayerService {
         eventBus.playerStatusUpdated(opponent, OPPONENT);
 
         opponentService.startCardPlacementTurn(opponent);
-
     }
+
 }

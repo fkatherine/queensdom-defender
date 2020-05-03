@@ -44,4 +44,5 @@ public class TurnStatusFragmentViewModelUnitTest {
 
         verify(eventBus).turnEnded();
     }
+
 }

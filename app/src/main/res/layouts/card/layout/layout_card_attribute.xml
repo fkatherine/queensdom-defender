@@ -23,16 +23,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@{name}"
-            android:textSize="@dimen/card_attribute_text_size"
-            android:textColor="@color/applicationTextColour"/>
+            android:textColor="@color/applicationTextColour"
+            android:textSize="@dimen/card_attribute_text_size" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@{String.valueOf(value)}"
+            android:textColor="@color/applicationTextColour"
             android:textSize="@dimen/card_attribute_text_size"
-            app:layout_constraintLeft_toRightOf="@id/attribute_label"
-            android:textColor="@color/applicationTextColour"/>
+            app:layout_constraintLeft_toRightOf="@id/attribute_label" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

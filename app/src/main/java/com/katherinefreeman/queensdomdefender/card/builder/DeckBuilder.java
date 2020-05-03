@@ -23,14 +23,14 @@ public class DeckBuilder {
             new Card("Statue", R.drawable.character_card_09_archer, 1, 1, 0, CHARACTER),
             new Card("Skull", R.drawable.character_card_09_archer, 1, 1, 0, CHARACTER),
             new Card("Armoured Knight", R.drawable.character_card_09_archer, 5, 5, 5, CHARACTER)
-    ) );
+    ));
 
     @Inject
     public DeckBuilder() {
-
     }
 
     public ArrayList<Card> buildAvailableDeck() {
         return new ArrayList<>(availableDeck);
     }
+
 }

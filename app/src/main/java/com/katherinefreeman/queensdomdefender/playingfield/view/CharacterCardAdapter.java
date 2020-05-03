@@ -61,5 +61,7 @@ public class CharacterCardAdapter extends RecyclerView.Adapter<CharacterCardAdap
         public ViewDataBinding getBinding() {
             return binding;
         }
+
     }
+
 }

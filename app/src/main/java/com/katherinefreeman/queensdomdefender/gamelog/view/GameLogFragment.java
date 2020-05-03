@@ -85,4 +85,5 @@ public class GameLogFragment extends Fragment {
             }
         });
     }
+
 }

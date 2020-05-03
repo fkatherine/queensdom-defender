@@ -40,4 +40,5 @@ public class HeroHandFragmentViewModelUnitTest {
 
         assertThat(target.hand, is(cardsDrawn));
     }
+
 }

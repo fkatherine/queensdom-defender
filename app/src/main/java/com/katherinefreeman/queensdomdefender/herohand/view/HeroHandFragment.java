@@ -72,26 +72,21 @@ public class HeroHandFragment extends Fragment {
 
     private void configureHandListener(FragmentHeroHandBinding binding) {
         viewModel.hand.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Card>>() {
-
             @Override
             public void onChanged(ObservableList<Card> sender) {
-
             }
 
             @Override
             public void onItemRangeChanged(ObservableList<Card> sender, int positionStart, int itemCount) {
-
             }
 
             @Override
             public void onItemRangeInserted(ObservableList<Card> sender, int positionStart, int itemCount) {
                 binding.heroHandCardList.getAdapter().notifyDataSetChanged();
-
             }
 
             @Override
             public void onItemRangeMoved(ObservableList<Card> sender, int fromPosition, int toPosition, int itemCount) {
-
             }
 
             @Override
@@ -100,4 +95,5 @@ public class HeroHandFragment extends Fragment {
             }
         });
     }
+
 }

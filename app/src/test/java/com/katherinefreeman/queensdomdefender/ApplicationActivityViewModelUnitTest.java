@@ -83,4 +83,5 @@ public class ApplicationActivityViewModelUnitTest {
     private void withGameStarted() {
         target.startNewGame();
     }
+
 }

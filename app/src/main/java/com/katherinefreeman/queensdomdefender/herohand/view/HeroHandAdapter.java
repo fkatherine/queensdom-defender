@@ -55,5 +55,7 @@ public class HeroHandAdapter extends RecyclerView.Adapter<HeroHandAdapter.ViewHo
         public LayoutHeroHandCardBinding getBinding() {
             return binding;
         }
+
     }
+
 }

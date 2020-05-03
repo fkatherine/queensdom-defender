@@ -78,4 +78,5 @@ public class PlayerValidationServiceUnitTest {
     private void givenCardsAvailableInPlayerDeck() {
         deck.add(new Card("Archer", 1, 1, 1, 1, CHARACTER));
     }
+
 }

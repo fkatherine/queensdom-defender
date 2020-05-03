@@ -21,14 +21,14 @@ import static android.view.View.VISIBLE;
 
 public class TurnStatusFragment extends Fragment {
 
+    @Inject
+    TurnStatusFragmentViewModel viewModel;
+
     @BindingAdapter("android:visibility")
     public static void setVisibility(View view, Boolean visible) {
         int visibility = visible ? VISIBLE : GONE;
         view.setVisibility(visibility);
     }
-
-    @Inject
-    TurnStatusFragmentViewModel viewModel;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -56,4 +56,5 @@ public class TurnStatusFragment extends Fragment {
 
         return binding.getRoot();
     }
+
 }

@@ -15,4 +15,5 @@ public class UserHandUpdatedEvent {
     public List<Card> getUpdatedHand() {
         return updatedHand;
     }
+
 }

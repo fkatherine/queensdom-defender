@@ -19,4 +19,5 @@ public class CardValidationService {
     public boolean hasAvailableHandSpace(List<Card> hand) {
         return hand.size() < MAXIMUM_CARDS_IN_HAND_LIMIT;
     }
+
 }

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'checkstyle'
 
 android {
     compileSdkVersion 29
@@ -44,6 +45,29 @@ android {
 
 }
 
+checkstyle {
+    toolVersion '8.32'
+    configFile file("${rootDir}/config/checkstyle/checkstyle.xml")
+    ignoreFailures = false
+    maxWarnings = 0
+}
+task checkstyleMain(type: Checkstyle) {
+    source "src/main/java"
+    include '**/*.java'
+    classpath = files()
+}
+task checkStyleTest(type: Checkstyle) {
+    source 'src/test/java'
+    include '**/*.java'
+    classpath = files()
+}
+task checkStyleAndroidTest(type: Checkstyle) {
+    source 'src/androidTest/java'
+    include '**/*.java'
+    classpath = files()
+}
+check.dependsOn checkstyleMain, checkStyleTest, checkStyleAndroidTest
+
 dependencies {
     api 'com.google.dagger:dagger:2.27'
 
@@ -69,10 +93,11 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
 
-    androidTestImplementation( 'org.awaitility:awaitility:4.0.2') {
+    androidTestImplementation('org.awaitility:awaitility:4.0.2') {
         exclude group: 'org.hamcrest'
     }
 
     debugImplementation 'androidx.fragment:fragment-testing:1.2.2'
 
 }
+

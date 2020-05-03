@@ -33,4 +33,5 @@ public class Game {
     public void setCurrentPlayer(PlayerType currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
+
 }

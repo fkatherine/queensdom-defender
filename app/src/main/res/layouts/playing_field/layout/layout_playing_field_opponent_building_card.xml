@@ -6,8 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:padding="@dimen/card_padding"
-        android:background="@drawable/card_background">
+        android:background="@drawable/card_background"
+        android:padding="@dimen/card_padding">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/building_card_image"

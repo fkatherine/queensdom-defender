@@ -118,4 +118,5 @@ public class GameServiceUnitTest {
     private void withCurrentPlayer(PlayerType playerType) {
         game.setCurrentPlayer(playerType);
     }
+
 }

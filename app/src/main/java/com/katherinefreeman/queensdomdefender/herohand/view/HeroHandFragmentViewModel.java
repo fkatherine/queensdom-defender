@@ -26,4 +26,5 @@ public class HeroHandFragmentViewModel {
         hand.clear();
         hand.addAll(event.getUpdatedHand());
     }
+
 }

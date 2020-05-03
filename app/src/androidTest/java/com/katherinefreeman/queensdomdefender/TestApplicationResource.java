@@ -34,4 +34,5 @@ public class TestApplicationResource extends ExternalResource {
             testApplicationComponent.inject((TurnStatusFragmentTest) testClass);
         }
     }
+
 }

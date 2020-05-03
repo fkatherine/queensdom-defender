@@ -13,7 +13,6 @@ public class PlayerValidationService {
 
     @Inject
     public PlayerValidationService(CardValidationService cardValidationService) {
-
         this.cardValidationService = cardValidationService;
     }
 

@@ -9,4 +9,5 @@ public class Configuration {
     public static final int MAXIMUM_DRAWABLE_CARD_COUNT = 3;
 
     public static final int MAXIMUM_CARDS_IN_HAND_LIMIT = 7;
+
 }

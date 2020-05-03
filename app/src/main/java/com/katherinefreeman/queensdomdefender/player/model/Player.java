@@ -51,4 +51,5 @@ public class Player {
     public void setEnergy(int energy) {
         this.energy = energy;
     }
+
 }

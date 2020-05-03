@@ -59,4 +59,5 @@ public class TurnStatusFragmentTest {
         onView(withId(R.id.hero_turn_status)).check(matches(isDisplayed()));
         onView(withId(R.id.hero_end_turn_button)).check(matches(isDisplayed()));
     }
+
 }

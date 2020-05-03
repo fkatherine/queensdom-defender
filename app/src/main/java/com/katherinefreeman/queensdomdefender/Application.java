@@ -23,4 +23,5 @@ public class Application extends android.app.Application {
     public ApplicationComponent getApplicationComponent() {
         return applicationComponent;
     }
+
 }

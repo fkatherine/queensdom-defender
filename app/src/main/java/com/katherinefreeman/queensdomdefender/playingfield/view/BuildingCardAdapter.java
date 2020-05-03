@@ -61,5 +61,7 @@ class BuildingCardAdapter extends RecyclerView.Adapter<BuildingCardAdapter.ViewH
         public ViewDataBinding getBinding() {
             return binding;
         }
+
     }
+
 }

@@ -13,4 +13,5 @@ class PlayerCardPlacementStageStartedEvent {
     public PlayerType getPlayerType() {
         return playerType;
     }
+
 }

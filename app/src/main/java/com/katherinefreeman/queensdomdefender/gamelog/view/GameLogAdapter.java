@@ -12,8 +12,6 @@ import com.katherinefreeman.queensdomdefender.R;
 import com.katherinefreeman.queensdomdefender.databinding.LayoutGameLogItemBinding;
 import com.katherinefreeman.queensdomdefender.gamelog.model.GameLogItem;
 
-import java.util.List;
-
 public class GameLogAdapter extends RecyclerView.Adapter<GameLogAdapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
@@ -56,5 +54,7 @@ public class GameLogAdapter extends RecyclerView.Adapter<GameLogAdapter.ViewHold
         public LayoutGameLogItemBinding getBinding() {
             return binding;
         }
+
     }
+
 }

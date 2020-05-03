@@ -30,4 +30,5 @@ public class OpponentServiceUnitTest {
 
         verify(eventBus).turnEnded();
     }
+
 }

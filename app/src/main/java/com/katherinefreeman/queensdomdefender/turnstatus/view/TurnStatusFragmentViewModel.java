@@ -17,9 +17,8 @@ import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.HER
 @Singleton
 public class TurnStatusFragmentViewModel extends ViewModel {
 
-    private EventBus eventBus;
-
     public ObservableField<PlayerType> currentPlayer = new ObservableField<>(HERO);
+    private EventBus eventBus;
 
     @Inject
     public TurnStatusFragmentViewModel(EventBus eventBus) {
@@ -36,4 +35,5 @@ public class TurnStatusFragmentViewModel extends ViewModel {
     public void onEndTurn() {
         eventBus.turnEnded();
     }
+
 }

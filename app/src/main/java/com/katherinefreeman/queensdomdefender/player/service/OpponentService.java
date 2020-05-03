@@ -23,4 +23,5 @@ public class OpponentService {
 
         eventBus.turnEnded();
     }
+
 }

@@ -2,8 +2,6 @@ package com.katherinefreeman.queensdomdefender;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.drawable.ColorDrawable;
-import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -21,7 +19,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 @RunWith(AndroidJUnit4.class)
 public class ApplicationActivityTest {
@@ -32,7 +30,10 @@ public class ApplicationActivityTest {
 
     @Test
     public void shouldLaunchActivityInLandscapeMode() {
-        int activityOrientation = withCurrentApplicationContext().getResources().getConfiguration().orientation;
+        int activityOrientation = withCurrentApplicationContext()
+                .getResources()
+                .getConfiguration()
+                .orientation;
         assertThat(activityOrientation, is(Configuration.ORIENTATION_LANDSCAPE));
     }
 

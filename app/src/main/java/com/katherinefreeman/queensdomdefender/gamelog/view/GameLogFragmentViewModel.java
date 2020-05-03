@@ -1,7 +1,6 @@
 package com.katherinefreeman.queensdomdefender.gamelog.view;
 
 import androidx.databinding.ObservableArrayList;
-import androidx.lifecycle.ViewModel;
 
 import com.katherinefreeman.queensdomdefender.event.EventBus;
 import com.katherinefreeman.queensdomdefender.gamelog.model.GameLogItem;
@@ -25,4 +24,5 @@ public class GameLogFragmentViewModel {
     public void onLogGameEvent(GameLogItem gameLogItem) {
         gameLogItems.add(gameLogItem);
     }
+
 }

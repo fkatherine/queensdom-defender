@@ -6,8 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:padding="@dimen/card_padding"
-        android:background="@drawable/card_background">
+        android:background="@drawable/card_background"
+        android:padding="@dimen/card_padding">
 
         <include
             android:id="@+id/attack_attribute"
