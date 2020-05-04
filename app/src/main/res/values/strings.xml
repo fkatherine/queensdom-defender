@@ -5,6 +5,7 @@
     <string name="card_energy_attribute_label">Energy:&#160;</string>
     <string name="card_attack_points_attribute_label">AP:&#160;</string>
     <string name="card_health_points_attribute_label">HP:&#160;</string>
+    <string name="card_play_button">PLAY</string>
 
     <!-- end turn -->
     <string name="opponent_turn_label">Opponent\'s Turn</string>

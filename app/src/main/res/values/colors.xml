@@ -30,6 +30,8 @@
     <!-- Cards -->
     <color name="cardBackground">@color/rusticBeige</color>
     <color name="cardBorder">@color/black</color>
+    <color name="cardOverlay">#1D3BE2FF</color>
+
 
     <!-- Turn Status -->
     <color name="turnStatusBackground">@color/rusticPurple</color>

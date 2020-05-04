@@ -5,7 +5,6 @@ import com.katherinefreeman.queensdomdefender.player.model.Player;
 
 import org.junit.Test;
 
-import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.OPPONENT;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -16,13 +15,6 @@ public class OpponentServiceUnitTest {
     private Player opponent = new Player();
 
     private OpponentService target = new OpponentService(eventBus);
-
-    @Test
-    public void shouldPostCardPlacementStageStartedEventForOpponentOnStartCardPlacementTurn() {
-        target.startCardPlacementTurn(opponent);
-
-        verify(eventBus).playerCardPlacementStageStarted(OPPONENT);
-    }
 
     @Test
     public void shouldPostTurnEndedEventOnStartCardPlacementTurn() {

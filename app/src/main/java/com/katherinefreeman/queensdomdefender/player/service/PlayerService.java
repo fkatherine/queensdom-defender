@@ -72,7 +72,7 @@ public class PlayerService {
         user.setEnergy(MAXIMUM_PLAYER_ENERGY);
         eventBus.playerStatusUpdated(user, HERO);
 
-        eventBus.playerCardPlacementStageStarted(HERO);
+        eventBus.userCardPlacementStageStarted();
     }
 
     public void startNewOpponentTurn(Player opponent) {

@@ -82,14 +82,21 @@ public class EventBusUnitTest {
     }
 
     @Test
-    public void shouldPostPlayerCardPlacementStageStartedEvent() {
-        PlayerType expectedPlayerType = HERO;
+    public void shouldPostUserCardPlacementStageStartedEvent() {
+        target.userCardPlacementStageStarted();
 
-        target.playerCardPlacementStageStarted(expectedPlayerType);
+        verify(eventBus).postSticky(any(UserCardPlacementStageStartedEvent.class));
+    }
 
-        ArgumentCaptor<PlayerCardPlacementStageStartedEvent> eventCaptor = ArgumentCaptor.forClass(PlayerCardPlacementStageStartedEvent.class);
+    @Test
+    public void shouldPostUserCardPlayedEvent() {
+        Card expectedCard = new Card("archer", 1, 1, 2, 2, CHARACTER);
+
+        target.playUserCard(expectedCard);
+
+        ArgumentCaptor<UserCardPlayedEvent> eventCaptor = ArgumentCaptor.forClass(UserCardPlayedEvent.class);
         verify(eventBus).post(eventCaptor.capture());
-        assertThat(eventCaptor.getValue().getPlayerType(), is(expectedPlayerType));
+        assertThat(eventCaptor.getValue().getCard(), is(expectedCard));
     }
 
     @Test

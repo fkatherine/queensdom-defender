@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.BindingAdapter;
 import androidx.fragment.app.Fragment;
 
 import com.katherinefreeman.queensdomdefender.Application;
@@ -16,19 +15,10 @@ import com.katherinefreeman.queensdomdefender.databinding.FragmentTurnStatusBind
 
 import javax.inject.Inject;
 
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-
 public class TurnStatusFragment extends Fragment {
 
     @Inject
     TurnStatusFragmentViewModel viewModel;
-
-    @BindingAdapter("android:visibility")
-    public static void setVisibility(View view, Boolean visible) {
-        int visibility = visible ? VISIBLE : GONE;
-        view.setVisibility(visibility);
-    }
 
     @Override
     public void onAttach(@NonNull Context context) {

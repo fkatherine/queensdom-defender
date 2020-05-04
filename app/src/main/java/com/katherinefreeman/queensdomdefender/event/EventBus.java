@@ -40,12 +40,20 @@ public class EventBus {
         post(new PlayerStatusUpdatedEvent(player, playerType));
     }
 
-    public void playerCardPlacementStageStarted(PlayerType playerType) {
-        post(new PlayerCardPlacementStageStartedEvent(playerType));
+    public void userCardPlacementStageStarted() {
+        postSticky(new UserCardPlacementStageStartedEvent());
+    }
+
+    public void playUserCard(Card card) {
+        post(new UserCardPlayedEvent(card));
     }
 
     private void post(Object event) {
         eventBus.post(event);
+    }
+
+    private void postSticky(Object event) {
+        eventBus.postSticky(event);
     }
 
     public void subscribe(Object subscriber) {
@@ -59,6 +67,5 @@ public class EventBus {
             eventBus.unregister(subscriber);
         }
     }
-
 
 }

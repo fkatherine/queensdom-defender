@@ -7,85 +7,124 @@
 
         <import type="androidx.core.content.ContextCompat" />
 
+        <import type="android.view.View" />
+
         <variable
-            name="card"
-            type="com.katherinefreeman.queensdomdefender.card.model.Card" />
+            name="viewModel"
+            type="com.katherinefreeman.queensdomdefender.herohand.view.HeroHandCardViewModel" />
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/hero_hand_card_side_margin"
-        android:layout_marginEnd="@dimen/hero_hand_card_side_margin"
-        android:background="@drawable/card_background"
-        android:padding="@dimen/card_attribute_spacing">
+        android:layout_marginEnd="@dimen/hero_hand_card_side_margin">
 
-        <include
-            android:id="@+id/energy_attribute"
-            layout="@layout/layout_card_attribute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            bind:name="@{@string/card_energy_attribute_label}"
-            bind:rotation="@{0f}"
-            bind:value="@{card.energy}" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/character_card_image"
-            android:layout_width="@dimen/hero_hand_card_image_size"
-            android:layout_height="@dimen/hero_hand_card_image_size"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_overlay"
+            android:elevation="10dp"
             android:padding="@dimen/card_attribute_spacing"
-            android:src="@{ContextCompat.getDrawable(context, card.imageResource)}"
-            app:layout_constraintBottom_toTopOf="@+id/character_card_name"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/energy_attribute" />
+            android:visibility="@{viewModel.showCardOverlay}">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/character_card_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{card.name}"
-            android:textColor="@color/applicationTextColour"
-            android:textSize="@dimen/hero_hand_card_name_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/attribute_constraint_barrier"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/character_card_image" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/card_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.card.type.toString()}"
+                android:textSize="@dimen/hero_hand_card_overlay_text_size"
+                app:layout_constraintBottom_toTopOf="@id/play_card_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/attribute_constraint_barrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="top"
-            app:constraint_referenced_ids="attack_attribute, health_attribute" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/play_card_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_play_button"
+                android:textSize="@dimen/hero_hand_card_overlay_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_type"
+                android:onClick="@{() -> viewModel.onPlayCard()}"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <include
-            android:id="@+id/attack_attribute"
-            layout="@layout/layout_card_attribute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/character_card_name"
-            bind:name="@{@string/card_attack_points_attribute_label}"
-            bind:rotation="@{0f}"
-            bind:value="@{card.attack}" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_background"
+            android:padding="@dimen/card_attribute_spacing">
 
-        <include
-            android:id="@+id/health_attribute"
-            layout="@layout/layout_card_attribute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/character_card_name"
-            bind:name="@{@string/card_health_points_attribute_label}"
-            bind:rotation="@{0f}"
-            bind:value="@{card.health}" />
+            <include
+                android:id="@+id/energy_attribute"
+                layout="@layout/layout_card_attribute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:name="@{@string/card_energy_attribute_label}"
+                bind:rotation="@{0f}"
+                bind:value="@{viewModel.card.energy}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/character_card_image"
+                android:layout_width="@dimen/hero_hand_card_image_size"
+                android:layout_height="@dimen/hero_hand_card_image_size"
+                android:src="@{ContextCompat.getDrawable(context, viewModel.card.imageResource)}"
+                android:visibility="@{!viewModel.showCardOverlay ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toTopOf="@+id/character_card_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/energy_attribute" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/character_card_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.card.name}"
+                android:textColor="@color/applicationTextColour"
+                android:textSize="@dimen/hero_hand_card_name_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/attribute_constraint_barrier"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/character_card_image" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/attribute_constraint_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="attack_attribute, health_attribute" />
+
+            <include
+                android:id="@+id/attack_attribute"
+                layout="@layout/layout_card_attribute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_card_name"
+                bind:name="@{@string/card_attack_points_attribute_label}"
+                bind:rotation="@{0f}"
+                bind:value="@{viewModel.card.attack}" />
+
+            <include
+                android:id="@+id/health_attribute"
+                layout="@layout/layout_card_attribute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_card_name"
+                bind:name="@{@string/card_health_points_attribute_label}"
+                bind:rotation="@{0f}"
+                bind:value="@{viewModel.card.health}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </layout>

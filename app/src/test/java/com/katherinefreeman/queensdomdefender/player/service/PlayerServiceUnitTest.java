@@ -113,10 +113,10 @@ public class PlayerServiceUnitTest {
     }
 
     @Test
-    public void shouldPostCardPlacementStageStartedForHeroOnStartNewUserTurn() {
+    public void shouldPostUserCardPlacementStageStartedForHeroOnStartNewUserTurn() {
         target.startNewUserTurn(user);
 
-        verify(eventBus).playerCardPlacementStageStarted(HERO);
+        verify(eventBus).userCardPlacementStageStarted();
     }
 
     @Test

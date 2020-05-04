@@ -10,15 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.katherinefreeman.queensdomdefender.R;
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.databinding.LayoutHeroHandCardBinding;
+import com.katherinefreeman.queensdomdefender.event.EventBus;
 
 import java.util.List;
 
 public class HeroHandAdapter extends RecyclerView.Adapter<HeroHandAdapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
+    private EventBus eventBus;
     private List<Card> hand;
 
-    public HeroHandAdapter(List<Card> hand) {
+    public HeroHandAdapter(EventBus eventBus, List<Card> hand) {
+        this.eventBus = eventBus;
         this.hand = hand;
     }
 
@@ -35,7 +38,9 @@ public class HeroHandAdapter extends RecyclerView.Adapter<HeroHandAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull HeroHandAdapter.ViewHolder holder, int position) {
         Card card = hand.get(position);
-        holder.getBinding().setCard(card);
+        HeroHandCardViewModel viewModel = new HeroHandCardViewModel(card, eventBus);
+        holder.getBinding().setViewModel(viewModel);
+        holder.getBinding().executePendingBindings();
     }
 
     @Override

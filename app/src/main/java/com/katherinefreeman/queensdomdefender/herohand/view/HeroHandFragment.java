@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView.LayoutParams;
 import com.katherinefreeman.queensdomdefender.Application;
 import com.katherinefreeman.queensdomdefender.card.model.Card;
 import com.katherinefreeman.queensdomdefender.databinding.FragmentHeroHandBinding;
+import com.katherinefreeman.queensdomdefender.event.EventBus;
 
 import javax.inject.Inject;
 
@@ -23,6 +24,9 @@ public class HeroHandFragment extends Fragment {
 
     @Inject
     HeroHandFragmentViewModel viewModel;
+
+    @Inject
+    EventBus eventBus;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -53,7 +57,7 @@ public class HeroHandFragment extends Fragment {
     }
 
     private void configureHeroHandCards(FragmentHeroHandBinding binding) {
-        HeroHandAdapter heroHandAdapter = new HeroHandAdapter(viewModel.hand);
+        HeroHandAdapter heroHandAdapter = new HeroHandAdapter(eventBus, viewModel.hand);
         LinearLayoutManager linearLayoutManager = getConfiguredHeroHandCardLayout();
         binding.heroHandCardList.setLayoutManager(linearLayoutManager);
         binding.heroHandCardList.setAdapter(heroHandAdapter);
