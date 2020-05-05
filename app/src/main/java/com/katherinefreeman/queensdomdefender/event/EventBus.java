@@ -48,6 +48,10 @@ public class EventBus {
         post(new UserCardPlayedEvent(card));
     }
 
+    public void userCardPlaced(Card card) {
+        postSticky(new UserCardPlacedEvent(card));
+    }
+
     private void post(Object event) {
         eventBus.post(event);
     }

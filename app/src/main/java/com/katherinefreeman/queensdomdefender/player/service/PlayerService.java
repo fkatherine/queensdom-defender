@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import static com.katherinefreeman.queensdomdefender.card.model.CardType.BUILDING;
 import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_DRAWABLE_CARD_COUNT;
 import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_PLAYER_ENERGY;
 import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_PLAYER_HEALTH;
@@ -24,16 +25,19 @@ public class PlayerService {
     private EventBus eventBus;
     private PlayerValidationService playerValidationService;
     private OpponentService opponentService;
+    private UserService userService;
 
     @Inject
     public PlayerService(CardService cardService,
                          EventBus eventBus,
                          PlayerValidationService playerValidationService,
-                         OpponentService opponentService) {
+                         OpponentService opponentService,
+                         UserService userService) {
         this.cardService = cardService;
         this.eventBus = eventBus;
         this.playerValidationService = playerValidationService;
         this.opponentService = opponentService;
+        this.userService = userService;
     }
 
     public Player createNewPlayer() {
@@ -85,6 +89,14 @@ public class PlayerService {
         eventBus.playerStatusUpdated(opponent, OPPONENT);
 
         opponentService.startCardPlacementTurn(opponent);
+    }
+
+    public void playUserCard(Player user, Card card) {
+        if (card.getType() == BUILDING) {
+            userService.placeBuildingCard(user, card);
+        } else {
+            userService.placeCharacterCard(user, card);
+        }
     }
 
 }

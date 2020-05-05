@@ -100,6 +100,17 @@ public class EventBusUnitTest {
     }
 
     @Test
+    public void shouldPostUserCardPlacedEvent() {
+        Card expectedCard = new Card("archer", 1, 1, 2, 2, CHARACTER);
+
+        target.userCardPlaced(expectedCard);
+
+        ArgumentCaptor<UserCardPlacedEvent> eventCaptor = ArgumentCaptor.forClass(UserCardPlacedEvent.class);
+        verify(eventBus).postSticky(eventCaptor.capture());
+        assertThat(eventCaptor.getValue().getCard(), is(expectedCard));
+    }
+
+    @Test
     public void shouldNotSubscribeToEventBusWhenSubscriberHasSubscribedBefore() {
         givenSubscriberIsRegistered();
 

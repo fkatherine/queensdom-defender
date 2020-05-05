@@ -2,6 +2,7 @@ package com.katherinefreeman.queensdomdefender;
 
 import com.katherinefreeman.queensdomdefender.gamelog.view.GameLogFragment;
 import com.katherinefreeman.queensdomdefender.herohand.view.HeroHandFragment;
+import com.katherinefreeman.queensdomdefender.playingfield.view.PlayingFieldFragment;
 import com.katherinefreeman.queensdomdefender.turnstatus.view.TurnStatusFragment;
 
 import dagger.Component;
@@ -21,5 +22,7 @@ public interface ApplicationComponent {
     void inject(TurnStatusFragment turnStatusFragment);
 
     void inject(HeroHandFragment heroHandFragment);
+
+    void inject(PlayingFieldFragment playingFieldFragment);
 
 }

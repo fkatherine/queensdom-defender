@@ -9,7 +9,13 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.katherinefreeman.queensdomdefender.R;
+import com.katherinefreeman.queensdomdefender.card.model.Card;
+import com.katherinefreeman.queensdomdefender.databinding.LayoutPlayingFieldCharacterCardBinding;
+import com.katherinefreeman.queensdomdefender.databinding.LayoutPlayingFieldOpponentCharacterCardBinding;
+import com.katherinefreeman.queensdomdefender.event.EventBus;
 import com.katherinefreeman.queensdomdefender.player.model.PlayerType;
+
+import java.util.List;
 
 import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.OPPONENT;
 
@@ -17,9 +23,13 @@ public class CharacterCardAdapter extends RecyclerView.Adapter<CharacterCardAdap
 
     private LayoutInflater layoutInflater;
     private PlayerType type;
+    private List<Card> cards;
+    private EventBus eventBus;
 
-    public CharacterCardAdapter(PlayerType type) {
+    public CharacterCardAdapter(PlayerType type, List<Card> cards, EventBus eventBus) {
         this.type = type;
+        this.cards = cards;
+        this.eventBus = eventBus;
     }
 
     @NonNull
@@ -41,12 +51,23 @@ public class CharacterCardAdapter extends RecyclerView.Adapter<CharacterCardAdap
 
     @Override
     public void onBindViewHolder(@NonNull CharacterCardAdapter.ViewHolder holder, int position) {
+        Card card = cards.get(position);
+        if (type == OPPONENT) {
+            OpponentCharacterCardViewModel viewModel = new OpponentCharacterCardViewModel(card, eventBus);
+            LayoutPlayingFieldOpponentCharacterCardBinding binding = (LayoutPlayingFieldOpponentCharacterCardBinding) holder.getBinding();
+            binding.setViewModel(viewModel);
+        } else {
+            HeroCharacterCardViewModel viewModel = new HeroCharacterCardViewModel(card, eventBus);
+            LayoutPlayingFieldCharacterCardBinding binding = (LayoutPlayingFieldCharacterCardBinding) holder.getBinding();
+            binding.setViewModel(viewModel);
+        }
+
         holder.getBinding().executePendingBindings();
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return cards.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

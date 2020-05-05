@@ -3,6 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="card"
+            type="com.katherinefreeman.queensdomdefender.card.model.Card" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -13,7 +23,7 @@
             android:id="@+id/building_card_image"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/character_card_09_archer"
+            android:src="@{ContextCompat.getDrawable(context, card.imageResource)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +38,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             bind:name="@{@string/card_health_points_attribute_label}"
-            bind:value="@{1}" />
+            bind:value="@{card.health}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

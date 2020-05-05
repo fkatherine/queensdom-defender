@@ -9,7 +9,12 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.katherinefreeman.queensdomdefender.R;
+import com.katherinefreeman.queensdomdefender.card.model.Card;
+import com.katherinefreeman.queensdomdefender.databinding.LayoutPlayingFieldBuildingCardBinding;
+import com.katherinefreeman.queensdomdefender.databinding.LayoutPlayingFieldOpponentBuildingCardBinding;
 import com.katherinefreeman.queensdomdefender.player.model.PlayerType;
+
+import java.util.List;
 
 import static com.katherinefreeman.queensdomdefender.player.model.PlayerType.OPPONENT;
 
@@ -17,9 +22,12 @@ class BuildingCardAdapter extends RecyclerView.Adapter<BuildingCardAdapter.ViewH
 
     private LayoutInflater layoutInflater;
     private PlayerType type;
+    private List<Card> cards;
 
-    public BuildingCardAdapter(PlayerType cardType) {
+
+    public BuildingCardAdapter(PlayerType cardType, List<Card> cards) {
         this.type = cardType;
+        this.cards = cards;
     }
 
     @NonNull
@@ -42,12 +50,21 @@ class BuildingCardAdapter extends RecyclerView.Adapter<BuildingCardAdapter.ViewH
 
     @Override
     public void onBindViewHolder(@NonNull BuildingCardAdapter.ViewHolder holder, int position) {
+        Card card = cards.get(position);
+        if (type == OPPONENT) {
+            LayoutPlayingFieldOpponentBuildingCardBinding binding = (LayoutPlayingFieldOpponentBuildingCardBinding) holder.getBinding();
+            binding.setCard(card);
+        } else {
+            LayoutPlayingFieldBuildingCardBinding binding = (LayoutPlayingFieldBuildingCardBinding) holder.getBinding();
+            binding.setCard(card);
+        }
+
         holder.getBinding().executePendingBindings();
     }
 
     @Override
     public int getItemCount() {
-        return 2;
+        return cards.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

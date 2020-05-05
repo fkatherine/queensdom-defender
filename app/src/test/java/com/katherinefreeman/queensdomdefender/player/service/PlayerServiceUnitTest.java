@@ -12,6 +12,7 @@ import org.mockito.InOrder;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.katherinefreeman.queensdomdefender.card.model.CardType.BUILDING;
 import static com.katherinefreeman.queensdomdefender.card.model.CardType.CHARACTER;
 import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_DRAWABLE_CARD_COUNT;
 import static com.katherinefreeman.queensdomdefender.config.Configuration.MAXIMUM_PLAYER_ENERGY;
@@ -36,6 +37,7 @@ public class PlayerServiceUnitTest {
     private EventBus eventBus = mock(EventBus.class);
     private PlayerValidationService playerValidationService = mock(PlayerValidationService.class);
     private OpponentService opponentService = mock(OpponentService.class);
+    private UserService userService = mock(UserService.class);
 
     private ArrayList<Card> expectedDeck = new ArrayList<>(Collections.singletonList(
             new Card("Archer", R.drawable.character_card_09_archer, 1, 1, 1, CHARACTER)
@@ -44,7 +46,7 @@ public class PlayerServiceUnitTest {
     private ArrayList<Card> userHand = new ArrayList<>();
     private Player opponent = new Player();
 
-    private PlayerService target = new PlayerService(cardService, eventBus, playerValidationService, opponentService);
+    private PlayerService target = new PlayerService(cardService, eventBus, playerValidationService, opponentService, userService);
 
     @Test
     public void shouldCreatePlayerWithDefaultValuesOnCreateNewPlayer() {
@@ -159,6 +161,24 @@ public class PlayerServiceUnitTest {
         target.startNewOpponentTurn(opponent);
 
         verify(opponentService).startCardPlacementTurn(opponent);
+    }
+
+    @Test
+    public void shouldPlaceUserBuildingCardWhenCardTypeIsBuildingOnPlayUserCard() {
+        Card buildingCard = new Card("Cathedral", 1, 1, 1, 0, BUILDING);
+
+        target.playUserCard(user, buildingCard);
+
+        verify(userService).placeBuildingCard(user, buildingCard);
+    }
+
+    @Test
+    public void shouldPlaceUserCharacterCardWhenCardTypeIsCharacterOnPlayUserCard() {
+        Card characterCard = new Card("Archer", 1, 1, 2, 3, CHARACTER);
+
+        target.playUserCard(user, characterCard);
+
+        verify(userService).placeCharacterCard(user, characterCard);
     }
 
     private void withUserHandAvailable() {

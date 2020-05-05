@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.ObservableList;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.LayoutParams;
 
 import com.katherinefreeman.queensdomdefender.Application;
-import com.katherinefreeman.queensdomdefender.card.model.Card;
+import com.katherinefreeman.queensdomdefender.card.view.ObservableCardListCallbackListener;
 import com.katherinefreeman.queensdomdefender.databinding.FragmentHeroHandBinding;
 import com.katherinefreeman.queensdomdefender.event.EventBus;
 
@@ -75,29 +75,8 @@ public class HeroHandFragment extends Fragment {
     }
 
     private void configureHandListener(FragmentHeroHandBinding binding) {
-        viewModel.hand.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Card>>() {
-            @Override
-            public void onChanged(ObservableList<Card> sender) {
-            }
-
-            @Override
-            public void onItemRangeChanged(ObservableList<Card> sender, int positionStart, int itemCount) {
-            }
-
-            @Override
-            public void onItemRangeInserted(ObservableList<Card> sender, int positionStart, int itemCount) {
-                binding.heroHandCardList.getAdapter().notifyDataSetChanged();
-            }
-
-            @Override
-            public void onItemRangeMoved(ObservableList<Card> sender, int fromPosition, int toPosition, int itemCount) {
-            }
-
-            @Override
-            public void onItemRangeRemoved(ObservableList<Card> sender, int positionStart, int itemCount) {
-                binding.heroHandCardList.getAdapter().notifyDataSetChanged();
-            }
-        });
+        RecyclerView.Adapter adapter = binding.heroHandCardList.getAdapter();
+        viewModel.hand.addOnListChangedCallback(new ObservableCardListCallbackListener(adapter));
     }
 
 }

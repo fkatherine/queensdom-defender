@@ -40,8 +40,8 @@ public class HeroHandCardViewModelUnitTest {
     }
 
     @Test
-    public void shouldPostPlayUserCardEventOnPlayCard() {
-        target.onPlayCard();
+    public void shouldPostPlayUserCardEventOnCardInteraction() {
+        target.onCardInteraction();
 
         verify(eventBus).playUserCard(card);
     }

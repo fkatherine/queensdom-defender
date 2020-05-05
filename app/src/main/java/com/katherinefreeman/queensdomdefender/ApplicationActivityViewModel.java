@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.katherinefreeman.queensdomdefender.event.EventBus;
 import com.katherinefreeman.queensdomdefender.event.TurnEndedEvent;
+import com.katherinefreeman.queensdomdefender.event.UserCardPlayedEvent;
 import com.katherinefreeman.queensdomdefender.game.model.Game;
 import com.katherinefreeman.queensdomdefender.game.service.GameService;
 import com.katherinefreeman.queensdomdefender.player.service.PlayerService;
@@ -39,6 +40,11 @@ public class ApplicationActivityViewModel extends ViewModel {
         playerService.drawFirstOpponentHand(currentGame.getOpponent());
 
         gameService.startNewTurn(currentGame);
+    }
+
+    @Subscribe
+    public void onUserCardPlayed(UserCardPlayedEvent event) {
+        playerService.playUserCard(currentGame.getUser(), event.getCard());
     }
 
     @Subscribe

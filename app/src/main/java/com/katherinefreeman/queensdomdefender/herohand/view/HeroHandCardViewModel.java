@@ -1,8 +1,7 @@
 package com.katherinefreeman.queensdomdefender.herohand.view;
 
-import androidx.databinding.ObservableBoolean;
-
 import com.katherinefreeman.queensdomdefender.card.model.Card;
+import com.katherinefreeman.queensdomdefender.card.view.CardViewModel;
 import com.katherinefreeman.queensdomdefender.event.EventBus;
 import com.katherinefreeman.queensdomdefender.event.TurnEndedEvent;
 import com.katherinefreeman.queensdomdefender.event.UserCardPlacementStageStartedEvent;
@@ -10,18 +9,10 @@ import com.katherinefreeman.queensdomdefender.event.UserCardPlayedEvent;
 
 import org.greenrobot.eventbus.Subscribe;
 
-public class HeroHandCardViewModel {
-
-    public Card card;
-    public ObservableBoolean showCardOverlay = new ObservableBoolean();
-
-    private EventBus eventBus;
+public class HeroHandCardViewModel extends CardViewModel {
 
     public HeroHandCardViewModel(Card card, EventBus eventBus) {
-        this.card = card;
-        this.eventBus = eventBus;
-
-        eventBus.subscribe(this);
+        super(card, eventBus);
     }
 
     @Subscribe(sticky = true)
@@ -29,8 +20,8 @@ public class HeroHandCardViewModel {
         showCardOverlay.set(true);
     }
 
-    public void onPlayCard() {
-        eventBus.playUserCard(card);
+    public void onCardInteraction() {
+        this.eventBus.playUserCard(card);
     }
 
     @Subscribe
