@@ -52,6 +52,10 @@ public class EventBus {
         postSticky(new UserCardPlacedEvent(card));
     }
 
+    public void opponentCardPlaced(Card card) {
+        post(new OpponentCardPlacedEvent(card));
+    }
+
     private void post(Object event) {
         eventBus.post(event);
     }
